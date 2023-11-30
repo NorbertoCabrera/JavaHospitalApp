@@ -27,10 +27,10 @@ public class Hospital{
         //here I'm testing the exception handling
         Patient p1 = new Patient("carlos","perez","chhoc",null);
         Nurse claudia = new Nurse("claudia","cardozo",4,32,"surgery");
-        System.out.println(claudia.obtainPatientSymptoms(p1));
+        claudia.obtainPatientSymptoms(p1);
 
         Surgery surgery = new Surgery(null,"john",5);
         Doctor carlos = new Doctor("carlos","cabrera",4,33,"surgeon");
-        System.out.println(carlos.getSurgeryDepartmentName(surgery));
+        carlos.getSurgeryDepartmentName(surgery);
 
     }}

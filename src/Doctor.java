@@ -2,6 +2,9 @@
 
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.print.Doc;
 import java.math.BigDecimal;
 import java.nio.channels.ScatteringByteChannel;
@@ -10,6 +13,8 @@ import java.util.Objects;
 
 public class Doctor extends Employee implements IMedicalProfessional,IHospitalStaff,ITreatment{
 
+
+    private static final Logger logger = LogManager.getLogger(Doctor.class);
 
     private String specialization;
 
@@ -31,7 +36,7 @@ public class Doctor extends Employee implements IMedicalProfessional,IHospitalSt
 
     @Override
     public void work(){
-        System.out.print("working as a doctor");
+        logger.info("working as a doctor");
     }
 
 
@@ -68,7 +73,7 @@ public class Doctor extends Employee implements IMedicalProfessional,IHospitalSt
 
 
           }catch (InvalidTreatmentException e){
-          System.out.println("No medication available "+ e.getMessage());
+          logger.info("No medication available "+ e.getMessage());
       }
 
     }
@@ -79,7 +84,7 @@ public class Doctor extends Employee implements IMedicalProfessional,IHospitalSt
    }
    @Override
     public void getEmployeeInfo(){
-        System.out.println("Specialization: "+this.specialization
+        logger.info("Specialization: "+this.specialization
                 +" First name: "+this.getFirstName()
                 +" Last name: "+this.getLastName());
     }
@@ -90,13 +95,13 @@ public class Doctor extends Employee implements IMedicalProfessional,IHospitalSt
         try {
             surgeryDepartmentName = surgery.getDepartmentName();
         }catch (NoDepartmentNameException ndne){
-            System.err.println(ndne.getMessage());
+            logger.info(ndne.getMessage());
         }
         return surgeryDepartmentName;
     }
     @Override
     public void performTreatment(Patient patient){
-        System.out.println("perform treatment");
+        logger.info("perform treatment");
     }
 
 

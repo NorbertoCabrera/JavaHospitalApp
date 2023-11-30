@@ -1,6 +1,11 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Objects;
 
 public class Nurse extends Employee implements ILocation,IMedicalProfessional,IHospitalStaff,ITreatment {
+
+    private static final Logger logger = LogManager.getLogger(Nurse.class);
 
     private String hospitalArea;
 
@@ -40,9 +45,9 @@ public class Nurse extends Employee implements ILocation,IMedicalProfessional,IH
            }else patient.setCondition("not ill");
 
        }catch (InvalidTreatmentException ite){
-           System.out.println("The diagnose can't be accomplished!! "+ ite.getMessage());
+           logger.info("The diagnose can't be accomplished!! "+ ite.getMessage());
        }catch (PatientSymptomsException pse){
-           System.out.println("Patient's symptoms are not loaded" + pse.getMessage());
+           logger.info("Patient's symptoms are not loaded" + pse.getMessage());
        }
     }
     @Override
@@ -68,7 +73,7 @@ public class Nurse extends Employee implements ILocation,IMedicalProfessional,IH
 
 
         }catch (InvalidTreatmentException e){
-            System.out.println("No medication available "+ e.getMessage());
+            logger.info("No medication available "+ e.getMessage());
         }
 
     }
@@ -79,7 +84,7 @@ public class Nurse extends Employee implements ILocation,IMedicalProfessional,IH
     }
     @Override
     public void getEmployeeInfo(){
-        System.out.println("Specialization: "+this.hospitalArea
+        logger.info("Specialization: "+this.hospitalArea
                 +" First name: "+this.getFirstName()
                 +" Last name: "+this.getLastName());
     }
@@ -90,14 +95,14 @@ public class Nurse extends Employee implements ILocation,IMedicalProfessional,IH
 
         @Override
     public void work(){
-        System.out.print("working as a nurse");
+        logger.info("working as a nurse");
     }
 
 
 
     @Override
     public void performTreatment(Patient patient){
-        System.out.println("perform treatment");
+        logger.info("perform treatment");
     }
 
 
@@ -111,7 +116,7 @@ public class Nurse extends Employee implements ILocation,IMedicalProfessional,IH
             symptoms = patient.getSymptoms();
 
         } catch (PatientSymptomsException pse) {
-            System.err.println(pse.getMessage());
+            logger.info(pse.getMessage());
         }
         return symptoms;
     }
@@ -123,7 +128,7 @@ public class Nurse extends Employee implements ILocation,IMedicalProfessional,IH
         try {
             condition = patient.getCondition();
         }catch (PatientsConditionExceptions pce){
-            System.err.println(pce.getMessage());
+            logger.info(pce.getMessage());
         }
         return condition;
     }

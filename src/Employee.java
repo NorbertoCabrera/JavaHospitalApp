@@ -34,4 +34,14 @@ public abstract class Employee extends Person{
             return (this.getFirstName().equals(thatEmployee.getFirstName())&&this.getLastName().equals(thatEmployee.getLastName())&&this.getYearsOfExperience() == thatEmployee.getYearsOfExperience()&&this.getSalary()== thatEmployee.getSalary());
 
  }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "yearsOfExperience=" + yearsOfExperience +
+                ", salary=" + salary +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }
