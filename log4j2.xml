@@ -9,7 +9,7 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="Hospital" level="info">
+        <Logger name="Classes.Hospital" level="info">
            <AppenderRef ref="Console2"/>
         </Logger>
         <Root level="info">
