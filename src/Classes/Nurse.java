@@ -17,12 +17,23 @@ public class Nurse extends Employee implements ILocation, IMedicalProfessional, 
     private static final Logger logger = LogManager.getLogger(Nurse.class);
 
     private String hospitalArea;
+    private int salary;
 
 
 
     public Nurse(String firsName, String lastName, int yearsOfExperience, int salary, String hospitalArea) {
         super(firsName,lastName,yearsOfExperience,salary);
         this.hospitalArea = hospitalArea;
+    }
+
+    @Override
+    public int getSalary() {
+        return salary;
+    }
+
+    @Override
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public String getHospitalArea() {

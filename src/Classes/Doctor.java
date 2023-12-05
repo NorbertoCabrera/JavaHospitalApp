@@ -19,6 +19,7 @@ public class Doctor extends Employee implements IMedicalProfessional, IHospitalS
     private static final Logger logger = LogManager.getLogger(Doctor.class);
 
     private String specialization;
+    private int salary;
 
 
     public Doctor(String firstName, String lastName, int yearsOfExperience, int salary, String specialization) {
@@ -27,6 +28,15 @@ public class Doctor extends Employee implements IMedicalProfessional, IHospitalS
         this.specialization = specialization;
     }
 
+    @Override
+    public int getSalary() {
+        return salary;
+    }
+
+    @Override
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 
     public String getSpecialization() {
         return specialization;
